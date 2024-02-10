@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "YASSG config schema",
+    "description": "Schema for the JSON config that YASSG receives",
+    "properties" : {
+            "content": {
+                "type": "array",
+                "items": {
+                    "type" : "object",
+                    "$ref": "#/$defs/assetProps"
+                }
+            },
+            "builders": {
+                "type" : "object"
+            },
+            "variables": {
+                "type" : "object"
+            }
+    },
+    "required": ["content", "builders"],
+    "additionalProperties" : true,
+    "$defs" : {
+        "assetProps": {
+                "properties": {
+                        "source_directory" : {
+                            "type" : "string"
+                        },
+                        "builder" : {
+                            "type" : "string"
+                        },
+                        "output_directory" : {
+                            "type" : "string"
+                        }
+                },
+                "required": ["source_directory", "builder", "output_directory"],
+                "additionalProperties": false
+        },
+        "builderProps": {
+            "properties": {
+                    "flavor" : {
+                        "type" : "string"
+                    },
+                    "config" : {
+                        "type" : "object"
+                    }
+            },
+            "required": ["flavor", "config"],
+            "additionalProperties": false
+        }
+    }
+}

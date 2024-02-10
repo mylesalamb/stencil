@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stencil"
+version = "0.0.1"
+authors = [
+    {name = "Myles Lamb", email = "mylesalamb@gmail.com"},
+]
+description = "A simple static site generator written in python"
+requires-python = ">=3.10"
+license = {text = "GPLv3"}
+classifiers = [
+    
+]
+dependencies = [
+    "markdown>=3",
+    "click>=8",
+    "jinja2",
+    "inotify",
+    "jsonschema"
+]
+
+[project.scripts]
+stencil = "stencil.cli:cli"
+
+[project.optional-dependencies]
+test = ["pytest",]
+lint = ["pylint", "black", "mypy", "reorder-python-imports", "types-jsonschema", "types-Markdown"]
+dev = ["build", "stencil[test]", "stencil[lint]"]
+
+
+[tool.mypy]
+strict = true
