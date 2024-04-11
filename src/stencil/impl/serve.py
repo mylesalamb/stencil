@@ -22,3 +22,4 @@ def serve_directory(hostname: str, port: int, directory: pathlib.Path) -> None:
         httpd.serve_forever()
     except KeyboardInterrupt:
         logger.warning("Caught keyboard interrupt")
+        httpd.server_close()
