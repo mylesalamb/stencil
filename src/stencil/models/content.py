@@ -1,6 +1,7 @@
 """
 Types for managing YASSG content
 """
+
 import pathlib
 from dataclasses import dataclass
 

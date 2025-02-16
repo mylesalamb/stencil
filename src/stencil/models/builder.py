@@ -4,6 +4,7 @@ stencil builtin builders,
 objects that are responsible for recieving input files and 'building' them
 to outputs with some particular strategy
 """
+
 import pathlib
 import shutil
 from abc import ABC

@@ -1,6 +1,7 @@
 """
 Utilities for extracting json metadata headers in files
 """
+
 import json
 import pathlib
 import re

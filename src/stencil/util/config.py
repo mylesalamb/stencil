@@ -1,6 +1,7 @@
 """
 Utilities to manage the configuration supplied to stencil
 """
+
 import json
 import logging
 import pathlib

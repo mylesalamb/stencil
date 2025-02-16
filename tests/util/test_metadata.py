@@ -1,6 +1,7 @@
 """
 Tests for metadata extraction from content
 """
+
 from stencil.util.metadata import get_embedded_metadata
 
 

@@ -1,6 +1,7 @@
 """
 Tests for config parsing in stencil
 """
+
 from typing import Any
 
 from stencil.util.config import parse_and_validate

@@ -1,6 +1,7 @@
 """
 Logging configuration for YASSG
 """
+
 import logging.config
 
 

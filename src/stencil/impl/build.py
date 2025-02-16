@@ -1,6 +1,7 @@
 """
 Utilities for building a stencil project
 """
+
 import logging
 import pathlib
 from typing import List

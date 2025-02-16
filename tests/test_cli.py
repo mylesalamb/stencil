@@ -1,6 +1,7 @@
 """
 Tests for the cli frontend to stencil
 """
+
 import functools
 import pathlib
 from typing import Callable

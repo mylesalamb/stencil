@@ -1,6 +1,7 @@
 """
 Environment management for the template context
 """
+
 import logging
 import pathlib
 from dataclasses import dataclass
