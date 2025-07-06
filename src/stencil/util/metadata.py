@@ -3,14 +3,17 @@ Utilities for extracting json metadata headers in files
 """
 
 import json
+import logging
 import pathlib
 import re
 from typing import Any
 from typing import Optional
 
 _METADATA_WRAPPER = r"(?:---)"
-METADATA_REGEX = f"^{_METADATA_WRAPPER}\n(.+){_METADATA_WRAPPER}(?:\n)?(.*)$"
+METADATA_REGEX = f"^{_METADATA_WRAPPER}\n(.+?){_METADATA_WRAPPER}(?:\n)?(.*)$"
 REGEX = re.compile(METADATA_REGEX, re.S | re.M)
+
+logger = logging.getLogger(__name__)
 
 
 def get_embedded_metadata(string: str) -> Optional[tuple[dict[str, Any], str]]:
@@ -21,8 +24,11 @@ def get_embedded_metadata(string: str) -> Optional[tuple[dict[str, Any], str]]:
 
     if not result:
         return None
-
-    return json.loads(result.group(1)), result.group(2)
+    try:
+        return json.loads(result.group(1)), result.group(2)
+    except json.decoder.JSONDecodeError:
+        logger.fatal("Could not extract metadata from header: %s", result.group(1))
+        raise
 
 
 def get_file_content(path: pathlib.Path) -> tuple[dict[str, Any], str]:
